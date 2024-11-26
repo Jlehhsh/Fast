@@ -27,9 +27,9 @@ body {
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-.logo-image {
-    max-height: 80px;
-    width: auto;
+.logo {
+    font-size: 2.5rem;
+    font-weight: bold;
     margin-bottom: 0.5rem;
 }
 
@@ -74,65 +74,6 @@ body {
     margin-bottom: 1.5rem;
     border-bottom: 3px solid var(--accent-color);
     padding-bottom: 0.5rem;
-}
-
-.items {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-}
-
-.item {
-    position: relative;
-    cursor: pointer;
-}
-
-.product-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    z-index: 2000;
-    justify-content: center;
-    align-items: center;
-}
-
-.product-details {
-    background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    max-width: 600px;
-    width: 90%;
-    position: relative;
-}
-
-.product-details h2 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-}
-
-.product-details img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 1rem;
-    border-radius: 5px;
-}
-
-.product-details p {
-    margin-bottom: 1rem;
-    line-height: 1.6;
-}
-
-.close-overlay {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: var(--primary-color);
 }
 
 .items {
@@ -286,7 +227,7 @@ body {
 </head>
 <body>
     <header class="header">
-        <img src="imagens/logo.jpg" alt="Fast MTA Logo" class="logo-image">
+        <div class="logo">Fast MTA</div>
         <p>Sua loja premium de conteúdo para MTA</p>
     </header>
 
@@ -326,23 +267,26 @@ body {
             <div class="category" data-category="vips">
                 <h2>VIPs</h2>
                 <div class="items">
-                    <div class="item" onclick="showProductDetails('vip-bronze')">
+                    <div class="item">
                         <img src="vip-bronze.jpg" alt="VIP Bronze package showcase" width="300" height="200">
                         <h3>VIP Bronze</h3>
                         <p>Benefícios básicos + 3 carros especiais</p>
                         <div class="price">R$ 29,99</div>
+                        <button class="button" onclick="addToCart('vip-bronze')">Adicionar ao Carrinho</button>
                     </div>
-                    <div class="item" onclick="showProductDetails('vip-ouro')">
+                    <div class="item">
                         <img src="imagens/vip-ouro.jpg" alt="VIP Ouro package showcase" width="300" height="200">
                         <h3>VIP Ouro</h3>
                         <p>Benefícios intermediários + 5 carros especiais</p>
                         <div class="price">R$ 49,99</div>
+                        <button class="button" onclick="addToCart('vip-ouro')">Adicionar ao Carrinho</button>
                     </div>
-                    <div class="item" onclick="showProductDetails('vip-diamante')">
+                    <div class="item">
                         <img src="imagens/vip-diamante.jpg" alt="VIP Diamante package showcase" width="300" height="200">
                         <h3>VIP Diamante</h3>
                         <p>Todos os benefícios + 10 carros especiais</p>
                         <div class="price">R$ 99,99</div>
+                        <button class="button" onclick="addToCart('vip-diamante')">Adicionar ao Carrinho</button>
                     </div>
                 </div>
             </div>
@@ -351,23 +295,26 @@ body {
             <div class="category" data-category="cars">
                 <h2>Carros Exclusivos</h2>
                 <div class="items">
-                    <div class="item" onclick="showProductDetails('r35-joaozin')">
+                    <div class="item">
                         <img src="imagens/r35-joaozin.jpg" alt="R35 Joaozin custom car" width="300" height="200">
                         <h3>R35 Joaozin</h3>
                         <p>Design exclusivo com personalização única</p>
                         <div class="price">R$ 39,99</div>
+                        <button class="button" onclick="addToCart('r35-joaozin')">Adicionar ao Carrinho</button>
                     </div>
-                    <div class="item" onclick="showProductDetails('r35-naipe')">
+                    <div class="item">
                         <img src="imagens/r35-naipe.jpg" alt="R35 Naipe custom car" width="300" height="200">
                         <h3>R35 Naipe</h3>
                         <p>Edição limitada com visual premium</p>
                         <div class="price">R$ 44,99</div>
+                        <button class="button" onclick="addToCart('r35-naipe')">Adicionar ao Carrinho</button>
                     </div>
-                    <div class="item" onclick="showProductDetails('r35-dking')">
+                    <div class="item">
                         <img src="imagens/r35-dking.jpg" alt="R35 DKing custom car" width="300" height="200">
                         <h3>R35 DKing</h3>
                         <p>O mais exclusivo da coleção</p>
                         <div class="price">R$ 49,99</div>
+                        <button class="button" onclick="addToCart('r35-dking')">Adicionar ao Carrinho</button>
                     </div>
                 </div>
             </div>
@@ -376,11 +323,12 @@ body {
             <div class="category" data-category="livery">
                 <h2>Livery Exclusiva</h2>
                 <div class="items">
-                    <div class="item" onclick="showProductDetails('custom-livery')">
+                    <div class="item">
                         <img src="imagens/custom-livery.jpg" alt="Custom livery design service" width="300" height="200">
                         <h3>Faça sua Livery</h3>
                         <p>Personalize seu veículo com nossa equipe profissional</p>
                         <div class="price">R$ 29,99</div>
+                        <button class="button" onclick="addToCart('custom-livery')">Adicionar ao Carrinho</button>
                     </div>
                 </div>
             </div>
@@ -390,48 +338,13 @@ body {
     <script>
     let cart = [];
     const products = {
-        'vip-bronze': {
-            name: 'VIP Bronze',
-            price: 29.99,
-            category: 'vips',
-            description: 'O pacote VIP Bronze oferece benefícios básicos incluindo 3 carros especiais exclusivos, tag especial no chat, acesso a áreas VIP e bônus de experiência.'
-        },
-        'vip-ouro': {
-            name: 'VIP Ouro',
-            price: 49.99,
-            category: 'vips',
-            description: 'O pacote VIP Ouro inclui 5 carros especiais exclusivos, tag dourada no chat, acesso a todas as áreas VIP, bônus de experiência aumentado e comandos especiais.'
-        },
-        'vip-diamante': {
-            name: 'VIP Diamante',
-            price: 99.99,
-            category: 'vips',
-            description: 'O melhor pacote VIP com 10 carros especiais exclusivos, tag diamante no chat, acesso total a todas as áreas, máximo bônus de experiência e todos os comandos especiais.'
-        },
-        'r35-joaozin': {
-            name: 'R35 Joaozin',
-            price: 39.99,
-            category: 'cars',
-            description: 'R35 customizado com design exclusivo do Joaozin, incluindo performance melhorada e visual único no servidor.'
-        },
-        'r35-naipe': {
-            name: 'R35 Naipe',
-            price: 44.99,
-            category: 'cars',
-            description: 'Edição especial do R35 com visual premium, acabamento personalizado e melhorias de performance exclusivas.'
-        },
-        'r35-dking': {
-            name: 'R35 DKing',
-            price: 49.99,
-            category: 'cars',
-            description: 'A versão mais exclusiva do R35, com personalização completa, máxima performance e visual único garantido.'
-        },
-        'custom-livery': {
-            name: 'Custom Livery',
-            price: 29.99,
-            category: 'livery',
-            description: 'Serviço de design personalizado para seu veículo. Nossa equipe profissional criará uma livery única baseada em suas preferências.'
-        }
+        'vip-bronze': { name: 'VIP Bronze', price: 29.99, category: 'vips' },
+        'vip-ouro': { name: 'VIP Ouro', price: 49.99, category: 'vips' },
+        'vip-diamante': { name: 'VIP Diamante', price: 99.99, category: 'vips' },
+        'r35-joaozin': { name: 'R35 Joaozin', price: 39.99, category: 'cars' },
+        'r35-naipe': { name: 'R35 Naipe', price: 44.99, category: 'cars' },
+        'r35-dking': { name: 'R35 DKing', price: 49.99, category: 'cars' },
+        'custom-livery': { name: 'Custom Livery', price: 29.99, category: 'livery' }
     };
 
     function filterProducts(category) {
@@ -504,33 +417,6 @@ body {
         document.querySelector('.checkout-form').style.display = 'block';
     }
 
-    function showProductDetails(productId) {
-        const product = products[productId];
-        const overlay = document.createElement('div');
-        overlay.className = 'product-overlay';
-        overlay.style.display = 'flex';
-        
-        const details = `
-            <div class="product-details">
-                <span class="close-overlay">&times;</span>
-                <h2>${product.name}</h2>
-                <img src="imagens/${productId}.jpg" alt="${product.name}">
-                <p>${product.description}</p>
-                <div class="price">R$ ${product.price.toFixed(2)}</div>
-                <button class="button" onclick="addToCart('${productId}')">Adicionar ao Carrinho</button>
-            </div>
-        `;
-        
-        overlay.innerHTML = details;
-        document.body.appendChild(overlay);
-        
-        overlay.addEventListener('click', (e) => {
-            if (e.target === overlay || e.target.className === 'close-overlay') {
-                overlay.remove();
-            }
-        });
-    }
-
     async function submitOrder(event) {
         event.preventDefault();
         const gameId = document.getElementById('game-id').value;
@@ -544,8 +430,10 @@ body {
         const total = cart.reduce((sum, item) => sum + item.price, 0);
         const items = cart.map(item => item.name).join(', ');
 
+        // Updated Discord webhook URL
         const webhookUrl = 'https://discord.com/api/webhooks/1310759371298570321/iJbix_Zk_nKJVBipXXLbBuMEd7cXkFyPY7KKVe8yNwIQle97orEoJRNyttgAEyZXDMUc';
         
+        // Updated message that includes both bot mention, role mention for ticket tool, and staff role mention
         const message = {
             content: `<@${710034409214181396}> <@&1310760085580156959> <@&1308990257378754632>\nNovo pedido de compra:\nCliente: ${discordName}\nID no Jogo: ${gameId}\nItens: ${items}\nTotal: R$ ${total.toFixed(2)}`
         };
@@ -573,13 +461,7 @@ body {
         }
     }
 
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            const overlay = document.querySelector('.product-overlay');
-            if (overlay) overlay.remove();
-        }
-    });
-
+    // Mostrar todos os produtos ao carregar a página
     window.onload = () => filterProducts('all');
     </script>
 </body></html>
